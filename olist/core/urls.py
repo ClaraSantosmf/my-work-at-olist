@@ -1,5 +1,8 @@
 from django.urls import path
 from olist.core import views
+
+# app_name = 'core'
+
 urlpatterns = [
-    path('', views.autores, name='autores')
+    path('autores/', views.autores, name='lista-autores')
 ]

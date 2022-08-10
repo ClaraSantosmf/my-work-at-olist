@@ -1,5 +1,12 @@
-from django.http import HttpResponse
+import json
+from django.http import JsonResponse
+
+from olist.core.models import Autor
 
 
 def autores(request):
-    return HttpResponse('ok')
+    #response = HttpResponse('ok', content_type="text/plain")
+
+    response = [autor.to_dict() for autor in Autor.objects.all()]
+
+    return JsonResponse({'dados': autores})

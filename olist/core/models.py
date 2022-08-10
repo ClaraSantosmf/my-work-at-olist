@@ -7,6 +7,12 @@ class Autor(models.Model):
     def __str__(self):
         return self.nome
 
+    def to_dict(self):
+        return{
+            "id": self.id,
+            "nome": self.nome
+        }
+
 
 class Books(models.Model):
     nome = models.CharField(max_length=128)
@@ -16,3 +22,11 @@ class Books(models.Model):
 
     def __str__(self):
         return self.nome
+    
+    def to_dict(self):
+        return {
+            "nome": self.nome,
+            "edicao": self.edicao,
+            "ano_de_publicacao": self.ano_de_publicacao,
+            "autores": self.autores,
+        }
